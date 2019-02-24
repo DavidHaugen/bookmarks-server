@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
+const bookmarksRouter = require('./bookmarks-router');
 
 const app = express();
 
@@ -38,11 +39,6 @@ app.use(function validateBearerToken(req, res, next) {
   next();
 });
 
-
-app.get('/', (req, res) => {
-  res.send('Hello, world!');
-});
-
 app.use((error, req, res, next) => {
   let response;
   if (process.env.NODE_ENV === 'production') {
@@ -53,5 +49,6 @@ app.use((error, req, res, next) => {
   res.status(500).json(response);
 });
 
+app.use(bookmarksRouter)
 
 module.exports = app;

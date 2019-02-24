@@ -1,8 +1,8 @@
 'use strict';
 const express = require('express');
 const bookmarksRouter = express.Router();
-const logger = require('../logger');
-const { BOOKMARKS } = require('../store');
+const logger = require('./logger');
+const { BOOKMARKS } = require('./store');
 const bodyParser = express.json();
 const uuid = require('uuid/v4');
 

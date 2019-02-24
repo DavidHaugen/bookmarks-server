@@ -49,6 +49,6 @@ app.use((error, req, res, next) => {
   res.status(500).json(response);
 });
 
-app.use(bookmarksRouter)
+app.use(bookmarksRouter);
 
 module.exports = app;
